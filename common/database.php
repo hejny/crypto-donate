@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hejny
- * Date: 16.8.17
- * Time: 16:46
- */
+require '../config.php';
+
+$pdo = new PDO('mysql:host='.MYSQL_SERVER.';dbname='.MYSQL_DATABASE, MYSQL_USERNAME, MYSQL_PASSWORD);
+
+
+
+
+
+
+
