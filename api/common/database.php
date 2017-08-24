@@ -1,8 +1,11 @@
 <?php
 namespace CryptoDonate;
+require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../config.php';
 
 use \PDO;
+use Ramsey\Uuid\Uuid;
+
 
 class Database
 {
@@ -14,19 +17,41 @@ class Database
 
     function createDonate($name,$message,$currency,$address){
 
-        $sql = "INSERT INTO `donates` (`name`, `message`, `currency`, `address`) VALUES (:name, :message, :currency, :address);";
+        $uuid =  Uuid::uuid4()->toString();
+
+        $sql = "INSERT INTO `donates` (`uuid`, `name`, `message`, `currency`, `address`) VALUES (:uuid, :name, :message, :currency, :address);";
         $query = $this->db->prepare( $sql );
         $query->execute(array(
 
+            'uuid'=>$uuid,
             'name'=>$name,
             'message'=>$message,
             'currency'=>$currency,
             'address'=>$address,
 
         ));
-        //print_r($this->db>errorInfo());
-        $id = $this->db->lastInsertId();
-        return($id);
+
+
+        $lastId = $query;
+        return($this->getDonate($uuid));
     }
+
+
+    function getDonates()
+    {
+        $query = $this->db->prepare("SELECT * FROM `donates`");
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getDonate($uuid)
+    {
+        $query = $this->db->prepare("SELECT * FROM `donates` WHERE `uuid` = ?");
+        $query->execute(array($uuid));
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }

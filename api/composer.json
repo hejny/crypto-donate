@@ -1,8 +1,7 @@
 {
     "require": {
         "coinbase/coinbase": "^2.5",
-        "dannyvankooten/php-router": "dev-master",
-        "symfony/yaml": "^3.3",
-        "altorouter/altorouter": "^1.2"
+        "altorouter/altorouter": "^1.2",
+        "ramsey/uuid": "^3.7"
     }
 }

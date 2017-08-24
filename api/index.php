@@ -13,7 +13,8 @@ $router->setBasePath('/crypto-donate/api');
 
 
 $router->map('GET', '/donates', function( ) {
-    echo('ddddd');
+    $database = new CryptoDonate\Database();
+    return $database->getDonates();
 });
 
 
@@ -23,24 +24,19 @@ $router->map('POST', '/donates', function() {
     //todo maybe check POST JSON
 
     require_once __DIR__.'/common/bitcoin.php';
-    $address = getFreshAddress($data['currency']);
+    $address = CryptoDonate\getFreshAddress($data['currency']);
 
     $database = new CryptoDonate\Database();
-    $database->createDonate($data['name'],$data['message'],$data['currency'],$address);
-
-    echo(json_encode(array(
-        'id'=>$id
-    )));
-
-
+    return $database->createDonate($data['name'],$data['message'],$data['currency'],$address);
 
 });
 
 
 
 
-$router->map('GET', '/donates/[:id]', function($id) {
-    echo('donates');
+$router->map('GET', '/donates/[:uuid]', function($uuid) {
+    $database = new CryptoDonate\Database();
+    return $database->getDonate($uuid);
 });
 
 
@@ -55,12 +51,13 @@ $match = $router->match();
 if( $match && is_callable( $match['target'] ) ) {
     try{
 
-        call_user_func_array( $match['target'], $match['params'] );
+        $result = call_user_func_array( $match['target'], $match['params'] );
+        echo(json_encode($result,JSON_PRETTY_PRINT));
 
     }catch (Error $error){
 
         header('HTTP/1.1 500 Internal Server Error');
-        var_dump($error);//todo error_reporting
+        echo($error);//todo error_reporting
     }
 
 } else {
