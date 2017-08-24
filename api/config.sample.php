@@ -9,7 +9,7 @@ define('MYSQL_DATABASE','xxx');
 
 
 define('COINBASE_API_KEY','xxx');
-define('COINBASE_API_KEY','xxx');
+define('COINBASE_API_KEY_SECRET','xxx');
 
 
 
