@@ -50,7 +50,7 @@ class Database
         $query = $this->db->prepare("SELECT * FROM `donates` WHERE `uuid` = ?");
         $query->execute(array($uuid));
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 

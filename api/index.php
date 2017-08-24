@@ -52,7 +52,13 @@ if( $match && is_callable( $match['target'] ) ) {
     try{
 
         $result = call_user_func_array( $match['target'], $match['params'] );
-        echo(json_encode($result,JSON_PRETTY_PRINT));
+
+        if($result !== false){
+            echo(json_encode($result,JSON_PRETTY_PRINT));
+        }else{
+            header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+        }
+
 
     }catch (Error $error){
 
