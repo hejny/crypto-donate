@@ -16,15 +16,15 @@ $router = new AltoRouter();
 //$router->setBasePath('/crypto-donate/api/');
 $router->setBasePath('/crypto-donate/api');
 
-
-
+//todo routes should be in separate files
+//=================================================================================GET /donates
 $router->map('GET', '/donates', function( ) {
     $database = new CryptoDonate\Database();
     return $database->getDonates();
 });
 
 
-
+//=================================================================================POST /donates
 $router->map('POST', '/donates', function() {
     $data = json_decode( file_get_contents('php://input'),true);
     //todo maybe check POST JSON
@@ -39,7 +39,7 @@ $router->map('POST', '/donates', function() {
 
 
 
-
+//=================================================================================GET /donates/[:uuid]
 $router->map('GET', '/donates/[:uuid]', function($uuid) {
     $database = new CryptoDonate\Database();
     $donate = $database->getDonate($uuid);
@@ -51,7 +51,7 @@ $router->map('GET', '/donates/[:uuid]', function($uuid) {
 
 
 
-
+//=================================================================================GET /donates-payed
 $router->map('GET', '/donates-payed', function() {
 
     /*  todo maybe should be this
@@ -78,7 +78,7 @@ $router->map('GET', '/donates-payed', function() {
 
     return $donates;
 });
-
+//=================================================================================
 
 
 
