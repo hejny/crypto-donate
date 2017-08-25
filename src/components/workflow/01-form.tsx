@@ -1,13 +1,13 @@
 import * as React from "react";
 import { connect } from 'react-redux';
 import * as requestPromise from 'request-promise';
-import { Phase, LoadingPhase, IState } from '../reducers/index';
-import {API_URL} from '../config';
+import { Phase, LoadingPhase, IState } from '../../reducers/index';
+import {API_URL} from '../../config';
 
 function mapStateToProps(state:IState){
     return {
-        name: state.form.name,
-        message: state.form.message,
+        name: state.donate.name,
+        message: state.donate.message,
         isLoading: state.loadingPhase===LoadingPhase.LOADING,
         isError: state.loadingPhase===LoadingPhase.ERROR,
     };
@@ -16,8 +16,8 @@ function mapStateToProps(state:IState){
 
 function mapDispatchToProps(dispatch: Function) {
     return {
-        nameOnChange: (event:any) => dispatch({type: 'FORM_NAME_SET', value:event.target.value}),
-        messageOnChange: (event:any) => dispatch({type: 'FORM_MESSAGE_SET', value:event.target.value}),
+        nameOnChange: (event:any) => dispatch({type: 'DONATE_UPDATE', value:{name:event.target.value}}),
+        messageOnChange: (event:any) => dispatch({type: 'DONATE_UPDATE', value:{message:event.target.value}}),
         moveToNextPhase: (name:string,message:string,event:any) => {
 
             event.preventDefault();
@@ -39,7 +39,7 @@ function mapDispatchToProps(dispatch: Function) {
             requestPromise(options)
                 .then(function (parsedBody) {
                     console.log(parsedBody);
-                    dispatch({type: 'ADDRESS_SET', value:parsedBody.address});
+                    dispatch({type: 'DONATE_UPDATE', value:parsedBody});
                     dispatch({type: 'PHASE_SET', value:Phase.DONATE});
                     dispatch({type: 'LOADINGPHASE_SET', value:LoadingPhase.SUCCESS});
                 })

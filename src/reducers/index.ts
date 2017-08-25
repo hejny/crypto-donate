@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export enum Phase{
     FORM,
     DONATE,
@@ -13,23 +15,27 @@ export enum LoadingPhase{
 export interface IState{
     phase: Phase,
     loadingPhase: LoadingPhase,
-    form:{
+    donate:{
+        uuid: null | string,
         name: string,
         message: string,
         currency: string,//todo maybe enum
-    },
-    address: null | string
+        address: null | string,
+        amount: number
+    }
 }
 
-export const defaultState = {
+export const defaultState:IState = {
     phase: Phase.FORM,
     loadingPhase: LoadingPhase.SUCCESS,
-    form: {
+    donate: {
+        uuid:null,
         name: '',
         message: '',
-        currency: 'bitcoin'
-    },
-    address: null
+        currency: 'bitcoin',
+        address:null,
+        amount:0
+    }
 };
 
 export default function state(state: IState = defaultState, action: { type: string, value: any } ): IState {
@@ -42,20 +48,10 @@ export default function state(state: IState = defaultState, action: { type: stri
             loadingPhase: action.type === 'LOADINGPHASE_SET' ?
                 action.value :
                 state.loadingPhase,
-            form: {
-                name: action.type === 'FORM_NAME_SET' ?
-                    action.value :
-                    state.form.name,
-                message: action.type === 'FORM_MESSAGE_SET' ?
-                    action.value :
-                    state.form.message,
-                currency: action.type === 'FORM_CURRENCY_SET' ?
-                    action.value :
-                    state.form.currency,
-            },
-            address: action.type === 'ADDRESS_SET' ?
-                action.value :
-                state.address,
+
+            donate: action.type === 'DONATE_UPDATE' ?
+                 _.assignIn({},state.donate,action.value):
+                state.donate
         };
     } catch (error) {
 
