@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from 'react-redux';
+import * as FontAwesome from 'react-fontawesome';
 import * as requestPromise from 'request-promise';
 import { Phase, LoadingPhase, IState } from '../../reducers/index';
 import {API_URL} from '../../config';
@@ -25,7 +26,7 @@ function mapDispatchToProps(dispatch: Function) {
 
             dispatch({type: 'LOADINGPHASE_SET', value:LoadingPhase.LOADING});
 
-            var options = {
+            const options = {
                 method: 'POST',
                 uri: API_URL+'/donates',
                 body: {
@@ -61,7 +62,18 @@ function Form({name,message,nameOnChange,messageOnChange,moveToNextPhase,isLoadi
 
 
     return (
-        <div>
+        <div className="phase-form">
+
+
+            {isError?
+                <div className="warning">
+                    <FontAwesome name="warning"/>
+                    Nastala chyba v načítání, zkus prosím odeslat formulář ještě jednou.
+                </div>
+                :undefined}
+
+
+
             <form>
                 <label>
                     Jméno:
@@ -75,12 +87,11 @@ function Form({name,message,nameOnChange,messageOnChange,moveToNextPhase,isLoadi
                 {/*todo In future here should be currency selector.*/}
                 <input type="hidden" name="currency" value="BTC"/>
                 <button onClick={moveToNextPhase.bind(null,name,message)}>
-                    {isLoading?'Načítání':'Darovat!'}
+                    {isLoading?<FontAwesome name="spinner" spin/>:'Darovat!'}
                 </button>
             </form>
 
 
-            Pozor posílej pouye Bitcoin ne Bitcoin Cash
         </div>
     );
 
