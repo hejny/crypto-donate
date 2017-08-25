@@ -24,8 +24,8 @@ function Thanks({donate,newDonate}:any) {
 
 
     return (
-        <div className="phase-thanks">
-            Děkuji ti za tvůj dar {donate.amount} BTC.
+        <div className="phase phase-thanks">
+            Děkuji ti za tvůj dar {donate.received} BTC.
 
             <button onClick={newDonate}>
                 <FontAwesome name="repeat"/> Darovat ještě jednou

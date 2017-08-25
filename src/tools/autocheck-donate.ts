@@ -22,8 +22,8 @@ export default function setCheckingInterval(store:Store<IState>){
                 .then(function (parsedBody) {
                     console.log(parsedBody);
                     store.dispatch({type: 'DONATE_UPDATE', value:parsedBody});
-                    if(parsedBody.amount>0){
-                        store.dispatch({type: 'PHASE_SET', value:Phase.DONATE});
+                    if(parsedBody.received>0){
+                        store.dispatch({type: 'PHASE_SET', value:Phase.THANKS});
                     }
                     store.dispatch({type: 'LOADINGPHASE_SET', value:LoadingPhase.SUCCESS});
                 })

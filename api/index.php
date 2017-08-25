@@ -45,6 +45,7 @@ $router->map('GET', '/donates/[:uuid]', function($uuid) {
     $donate = $database->getDonate($uuid);
     if($donate){
         $donate['received'] = \CryptoDonate\CryptoCoin::getAddrressBallance($donate['currency'],$donate['address']);
+        //$donate['received'] = 1;//for testing
     }
     return $donate;
 });

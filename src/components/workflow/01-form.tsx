@@ -62,7 +62,7 @@ function Form({name,message,nameOnChange,messageOnChange,moveToNextPhase,isLoadi
 
 
     return (
-        <div className="phase-form">
+        <div className="phase phase-form">
 
 
             {isError?
@@ -83,11 +83,16 @@ function Form({name,message,nameOnChange,messageOnChange,moveToNextPhase,isLoadi
                     Vzkaz:
                     <textarea maxLength={255} defaultValue={message} onChange={messageOnChange} disabled={isLoading}/>
                 </label>
+                <label>
+                    Kryptoměna:
+                    <select>
+                        <option value="BTC">Bitcoin</option>
+                    </select>
+                </label>
 
-                {/*todo In future here should be currency selector.*/}
-                <input type="hidden" name="currency" value="BTC"/>
+
                 <button onClick={moveToNextPhase.bind(null,name,message)}>
-                    {isLoading?<FontAwesome name="spinner" spin/>:'Darovat!'}
+                    {isLoading?<span><FontAwesome name="spinner" spin/> Načítání</span>:'Darovat!'}
                 </button>
             </form>
 

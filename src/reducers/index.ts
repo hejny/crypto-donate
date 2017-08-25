@@ -21,7 +21,7 @@ export interface IState{
         message: string,
         currency: string,//todo maybe enum
         address: null | string,
-        amount: number
+        received: number
     }
 }
 
@@ -34,7 +34,7 @@ export const defaultState:IState = {
         message: '',
         currency: 'bitcoin',
         address:null,
-        amount:0
+        received:0
     }
 };
 
@@ -46,8 +46,12 @@ export default function state(state: IState = defaultState, action: { type: stri
                 action.value :
                 state.phase,
             loadingPhase: action.type === 'LOADINGPHASE_SET' ?
-                action.value :
-                state.loadingPhase,
+                action.value:
+                (
+                    (action.type === 'PHASE_SET' && action.value===Phase.FORM) ?
+                    LoadingPhase.SUCCESS:
+                    state.loadingPhase
+                ),
 
             donate: action.type === 'DONATE_UPDATE' ?
                  _.assignIn({},state.donate,action.value):

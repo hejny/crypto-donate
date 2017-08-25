@@ -1,10 +1,7 @@
 import * as React from "react";
 import * as FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
-//import * as requestPromise from 'request-promise';
 import { IState, Phase } from '../../reducers/index';
-//import {API_URL} from '../../config';
-
 
 function mapStateToProps(state:IState){
     return {
@@ -26,25 +23,30 @@ function Donate({donate,newDonate}:any) {
 
     //todo show loading errors
     return (
-        <div className="phase-donate">
+        <div className="phase  phase-donate">
 
 
 
-            Donate phase
-
-            Čekám na dar...
-            <FontAwesome name="spinner" spin/>
-
-            {donate.address}
+            <h2>
+                <FontAwesome name="spinner" spin/>
+                Čekám na dar
+            </h2>
 
 
-            <img src={`https://blockchain.info/qr?data=${donate.address}&size=200`}/>
-            <a href={`https://blockchain.info/address/${donate.address}`} target="_blank">Otevřít na Blockchain.info</a>
-            <a href={`bitcoin:${donate.address}`} target="_blank">Otevřít v peněžence</a>
+            <ul>
+                <li><img src={`https://blockchain.info/qr?data=${donate.address}&size=200`}/></li>
+                <li>{donate.address}</li>
+            </ul>
 
+            <ul>
+                <li><a href={`https://blockchain.info/address/${donate.address}`} target="_blank">Otevřít na Blockchain.info</a></li>
+                <li><a href={`bitcoin:${donate.address}`} target="_blank">Otevřít v peněžence</a></li>
+            </ul>
 
-            Pozor posílej pouze Bitcoin ne Bitcoin Cash
-
+            <div className="warning bcc">
+                <FontAwesome name="warning"/>
+                Posílej pouze Bitcoin ne Bitcoin Cash
+            </div>
 
 
             <button onClick={newDonate}>

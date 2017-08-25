@@ -1,7 +1,7 @@
-import { IState, defaultState } from '../reducers/index';
+import { IState } from '../reducers/index';
 
 
-export function loadState(): IState {
+export function loadState(defaultState: IState): IState {
     try {
         const serializedState = localStorage.getItem('state');
         if (serializedState === null) {
