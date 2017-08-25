@@ -18,11 +18,30 @@
 <body>
 
 
-<form>
-    <input type="text" name="name"/>
-    <input type="text" name="message" maxlength="255"/>
-    <input type="submit" value="OK"/>
+
+
+<form id="donate">
+    <label>
+        Jméno:
+        <input type="text" name="name" maxlength="200"/>
+    </label>
+    <label>
+        Vzkaz:
+        <textarea name="message" maxlength="255"></textarea>
+    </label>
+
+    <!--In future here should be currency selector.-->
+    <input type="hidden" name="currency" value="BTC"/>
+    <input type="submit" value="Darovat!"/>
 </form>
+
+
+Pozor posílej pouye Bitcoin ne Bitcoin Cash
+
+
+
+
+
 
 
 </body>

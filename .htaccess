@@ -1,2 +1,7 @@
-Order Allow,Deny
-Deny from all
+#Order Allow,Deny
+#Deny from all
+
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on

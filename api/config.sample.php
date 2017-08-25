@@ -1,18 +1,9 @@
 <?php
-//todo namespaces
+define('MYSQL_SERVER','');
+define('MYSQL_USERNAME','');
+define('MYSQL_PASSWORD','');
+define('MYSQL_DATABASE','');
 
-define('MYSQL_SERVER','xxx');
-define('MYSQL_USERNAME','xxx');
-define('MYSQL_PASSWORD','xxx');
-define('MYSQL_DATABASE','xxx');
-
-
-
-define('COINBASE_API_KEY','xxx');
-define('COINBASE_API_KEY_SECRET','xxx');
-
-
-
-
-
+define('COINBASE_API_KEY','');
+define('COINBASE_API_KEY_SECRET','');
 
