@@ -1,4 +1,6 @@
 <?php
+define('API_ROOT','/donate/api');
+
 define('MYSQL_SERVER','');
 define('MYSQL_USERNAME','');
 define('MYSQL_PASSWORD','');

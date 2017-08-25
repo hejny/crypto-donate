@@ -2,6 +2,7 @@
 require_once __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/common/database.php';
 require_once __DIR__.'/common/cryptocoin.php';
+require_once __DIR__.'/config.php';
 
 
 header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
@@ -14,7 +15,7 @@ $router = new AltoRouter();
 
 
 //$router->setBasePath('/crypto-donate/api/');
-$router->setBasePath('/crypto-donate/api');
+$router->setBasePath(API_ROOT);
 
 //todo routes should be in separate files
 //=================================================================================GET /donates
