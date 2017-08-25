@@ -14,23 +14,31 @@ function mapStateToProps(state:any){
 
 function Root({phase}:{phase:Phase}) {
 
+
     switch(phase){
         case Phase.FORM:
             return <Form/>;
 
-        case Phase.DONATE_LOADING:
+        case Phase.DONATE:
             return(
                 <div>
                     Loading
                 </div>
             );
 
-        default:
+        case Phase.THANKS:
+            return(
+                <div>
+                    Thanks
+                </div>
+            );
+
+        /*default:
             return(
                 <div>
                     Unknown
                 </div>
-            );
+            );*/
     }
 
 

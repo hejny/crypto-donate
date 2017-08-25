@@ -9,10 +9,14 @@
     "@types/react-dom": "^15.5.4",
     "@types/react-redux": "^4.4.47",
     "@types/redux": "^3.6.31",
+    "@types/request": "^2.0.3",
+    "@types/request-promise": "^4.1.37",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   },
   "devDependencies": {
     "react-scripts-ts": "2.6.0"

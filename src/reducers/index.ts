@@ -1,22 +1,29 @@
 export enum Phase{
     FORM,
-    DONATE_LOADING,
-    DONATE_LOADING_ERROR,
+    DONATE,
     THANKS
+}
+
+export enum LoadingPhase{
+    SUCCESS,
+    LOADING,
+    ERROR
 }
 
 export interface IState{
     phase: Phase,
+    loadingPhase: LoadingPhase,
     form:{
         name: string,
         message: string,
         currency: string,//todo maybe enum
     },
-    address: null|string
+    address: null | string
 }
 
 export const defaultState = {
     phase: Phase.FORM,
+    loadingPhase: LoadingPhase.SUCCESS,
     form: {
         name: '',
         message: '',
@@ -25,13 +32,16 @@ export const defaultState = {
     address: null
 };
 
-export default function state(state:IState=defaultState, action: {type:string,value:any}):IState {
+export default function state(state: IState = defaultState, action: { type: string, value: any } ): IState {
 
     try {
         return {
             phase: action.type === 'PHASE_SET' ?
                 action.value :
                 state.phase,
+            loadingPhase: action.type === 'LOADINGPHASE_SET' ?
+                action.value :
+                state.loadingPhase,
             form: {
                 name: action.type === 'FORM_NAME_SET' ?
                     action.value :
