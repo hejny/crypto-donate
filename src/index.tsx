@@ -1,10 +1,24 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './components/app';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import stateReducer from './reducers/index';
+import Root from './components/root';
+import { loadState, saveState } from './tools/state-saver';
+import wrapReducer from './tools/wrap-reducer';
 
-import './style/index.css';
+
+const store = createStore(wrapReducer(stateReducer), loadState());
+store.subscribe(() => {
+    const state = store.getState();
+    saveState(state);
+});
+
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+    <Provider store={store}>
+        <Root />
+    </Provider>,
+    document.getElementById('root') as HTMLElement
 );
+
