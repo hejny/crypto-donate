@@ -1,6 +1,0 @@
-base_path: /
-
-routes:
-  donates: [/donates, CryptoDonate\Controllers\donatesRouter.getAllDonates, GET]
-  donates: [/donates, CryptoDonate\Controllers\donatesRouter.createDonate, POST]
-  donates: [/donates/:id, CryptoDonate\Controllers\donatesRouter.getDonate, GET]
