@@ -4,6 +4,10 @@
 
 ### GET /donates
 
+```JSON
+
+```
+
 
 ### POST /donates
 

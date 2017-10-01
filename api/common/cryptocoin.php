@@ -41,7 +41,7 @@ class CryptoCoin
             $startTime =$yearAgo;//todo there are only 1 yaer old transactions
         }
 
-        $plain = file_get_contents("https://blockchain.info/q/getreceivedbyaddress/$address?start_time=$startTime&format=plain");//todo is it possible via Coinbase API?
+        $plain = @file_get_contents("https://blockchain.info/q/getreceivedbyaddress/$address?start_time=$startTime&format=plain");//todo is it possible via Coinbase API?
         return floatval($plain)/10e7;
     }
 }
