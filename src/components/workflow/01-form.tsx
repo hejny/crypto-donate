@@ -39,8 +39,8 @@ function mapDispatchToProps(dispatch: Function) {
 
             requestPromise(options)
                 .then(function (parsedBody) {
-                    console.log(parsedBody);
-                    dispatch({type: 'DONATE_UPDATE', value:parsedBody});
+                    //console.log(parsedBody);
+                    dispatch({type: 'DONATE_UPDATE', value:parsedBody.data});
                     dispatch({type: 'PHASE_SET', value:Phase.DONATE});
                     dispatch({type: 'LOADINGPHASE_SET', value:LoadingPhase.SUCCESS});
                 })

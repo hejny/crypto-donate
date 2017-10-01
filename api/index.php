@@ -94,10 +94,15 @@ if(isset($_GET['route'])){
 if( $match && is_callable( $match['target'] ) ) {
     try{
 
-        $result = call_user_func_array( $match['target'], $match['params'] );
+        $data = call_user_func_array( $match['target'], $match['params'] );
 
-        if($result !== false){
-            echo(json_encode($result,JSON_PRETTY_PRINT));
+        if($data !== false){
+
+            $response = array(
+                'data'=>$data
+            );
+
+            echo(json_encode($response,JSON_PRETTY_PRINT));
         }else{
             echo('This asset not found.');
             header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
