@@ -14,8 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')exit;
 $router = new AltoRouter();
 
 
-//$router->setBasePath('/crypto-donate/api/');
-$router->setBasePath(API_ROOT);
 
 //todo routes should be in separate files
 //=================================================================================GET /donates
@@ -83,8 +81,12 @@ $router->map('GET', '/donates-payed', function() {
 //=================================================================================
 
 
-
-$match = $router->match();
+if(isset($_GET['route'])){
+    $match = $router->match($_GET['route']);
+}else{
+    $router->setBasePath(API_ROOT);
+    $match = $router->match();
+}
 
 
 
