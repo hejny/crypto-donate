@@ -32,5 +32,6 @@
         "test": "react-scripts-ts test --env=jsdom",
         "eject": "react-scripts-ts eject"
     },
-    "license": "SEE LICENSE IN LICENSE"
+    "license": "SEE LICENSE IN LICENSE",
+    "description": "This project was not finished and also not maintained for a long time. So expect not very updated stuff."
 }
