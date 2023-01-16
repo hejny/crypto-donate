@@ -33,5 +33,9 @@
         "eject": "react-scripts-ts eject"
     },
     "license": "SEE LICENSE IN LICENSE",
-    "description": "This project was not finished and also not maintained for a long time. So expect not very updated stuff."
+    "description": "This project was not finished and also not maintained for a long time. So expect not very updated stuff.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hejny/crypto-donate"
+    }
 }
