@@ -33,7 +33,7 @@
         "eject": "react-scripts-ts eject"
     },
     "license": "SEE LICENSE IN LICENSE",
-    "description": "This project was not finished and also not maintained for a long time. So expect not very updated stuff.",
+    "description": "Simple app in which you can poll via donating with crypto",
     "repository": {
         "type": "git",
         "url": "https://github.com/hejny/crypto-donate"
