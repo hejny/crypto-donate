@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from 'react-redux';
+import { Phase } from '../../reducers/index';
 import Form from "./01-form";
 import Donate from "./02-donate";
 import Thanks from "./03-thanks";
-import { Phase } from '../../reducers/index';
 
 
 function mapStateToProps(state:any){

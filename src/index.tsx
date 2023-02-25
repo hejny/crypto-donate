@@ -1,14 +1,13 @@
+import * as _ from 'lodash';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as _ from 'lodash';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import stateReducer from './reducers';
-import { defaultState } from './reducers';
+import { createStore } from 'redux';
 import Root from './components/root';
+import stateReducer, { defaultState } from './reducers';
+import setCheckingInterval from './tools/autocheck-donate';
 import { loadState, saveState } from './tools/state-saver';
 import wrapReducer from './tools/wrap-reducer';
-import setCheckingInterval from './tools/autocheck-donate';
 
 import './style/index.css';
 

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { connect } from 'react-redux';
 import * as FontAwesome from 'react-fontawesome';
+import { connect } from 'react-redux';
 //import * as requestPromise from 'request-promise';
 import { IState, Phase } from '../../reducers/index';
 //import {API_URL} from '../../config';

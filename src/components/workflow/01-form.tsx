@@ -1,9 +1,9 @@
 import * as React from "react";
-import { connect } from 'react-redux';
 import * as FontAwesome from 'react-fontawesome';
+import { connect } from 'react-redux';
 import * as requestPromise from 'request-promise';
-import { Phase, LoadingPhase, IState } from '../../reducers/index';
-import {API_URL} from '../../config';
+import { API_URL } from '../../config';
+import { IState, LoadingPhase, Phase } from '../../reducers/index';
 
 function mapStateToProps(state:IState){
     return {

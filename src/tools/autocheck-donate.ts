@@ -1,7 +1,7 @@
 import { Store } from 'redux';
 import * as requestPromise from 'request-promise';
-import { Phase, LoadingPhase, IState } from '../reducers';
-import {API_URL} from '../config';
+import { API_URL } from '../config';
+import { IState, LoadingPhase, Phase } from '../reducers';
 
 
 export default function setCheckingInterval(store:Store<IState>){
