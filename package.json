@@ -32,7 +32,7 @@
         "test": "react-scripts-ts test --env=jsdom",
         "eject": "react-scripts-ts eject"
     },
-    "license": "SEE LICENSE IN LICENSE",
+    "license": "Apache-2.0",
     "description": "Simple app in which you can poll via donating with crypto",
     "repository": {
         "type": "git",
