@@ -7,9 +7,9 @@
 [![Quality of package Crypto donate](https://packagequality.com/shield/crypto-donate.svg)](https://packagequality.com/#?package=crypto-donate)
 [![Known Vulnerabilities](https://snyk.io/test/github/hejny/crypto-donate/badge.svg)](https://snyk.io/test/github/hejny/crypto-donate)
 [![Issues](https://img.shields.io/github/issues/hejny/crypto-donate.svg?style=flat)](https://github.com/hejny/crypto-donate/issues)
+[![Socket](https://socket.dev/api/badge/npm/package/crypto-donate)](https://socket.dev/npm/package/crypto-donate)
 <!--[![License of Crypto donate](https://img.shields.io/github/license/hejny/crypto-donate.svg?style=flat)](https://github.com/hejny/crypto-donate/blob/main/LICENSE)-->
 <!--[![NPM Version of Crypto donate](https://badge.fury.io/js/crypto-donate.svg)](https://www.npmjs.com/package/crypto-donate)-->
-<!--[![Socket](https://socket.dev/api/badge/npm/package/crypto-donate)](https://socket.dev/npm/package/crypto-donate)-->
 
 <!--/Badges-->
 
