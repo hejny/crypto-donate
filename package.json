@@ -1,7 +1,7 @@
 {
     "name": "crypto-donate",
     "homepage": "https://www.standashow.cz/bitcoin/",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "private": true,
     "dependencies": {
         "@types/jest": "20.0.8",
