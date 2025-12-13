@@ -36,7 +36,7 @@
     "description": "Simple app in which you can poll via donating with crypto",
     "repository": {
         "type": "git",
-        "url": "https://github.com/hejny/crypto-donate"
+        "url": "git+https://github.com/hejny/crypto-donate.git"
     },
     "funding": [
         {
